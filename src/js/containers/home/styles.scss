@@ -1,0 +1,94 @@
+@import "../../theme/variables.scss";
+
+@mixin flexBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  @include flexBox;
+  flex-direction: column;
+  padding: 50px;
+  margin: 30px;
+  width: 100%;
+
+  .boxContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 30px;
+
+    @mixin box {
+      @include flexBox;
+      text-align: center;
+      height: 40px;
+      padding: 0 30px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.957);
+      border-radius: 5px;
+      box-shadow: 0 0 5px 2px rgb(192, 192, 192);
+      color: $secondaryFontColor;
+      outline: none;
+    }
+
+    .searchBar {
+      @include box; 
+      box-shadow: 0 0 5px 2px rgb(192, 192, 192);
+      width: 30%;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      text-align: left
+    }
+
+    .category {
+      @include box; 
+      width: 25%;
+      cursor: pointer;
+    }
+
+    .optionText {
+      background-color: rgba(255, 255, 255, 0.957);
+      border: none;
+      color: $secondaryFontColor;
+    }
+  }
+
+  .productBlock {
+    margin-top: 50px;
+    @include flexBox;
+    width: 70%;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .productBlock {
+    width: 100% !important;
+  }
+  .boxContainer {
+    flex-wrap: wrap;
+
+    .searchBar {
+      width: 100% !important;
+      margin: 10px 0px;
+    }
+
+    .category {
+      width: 100% !important;
+      margin: 10px 0px;
+    }
+
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

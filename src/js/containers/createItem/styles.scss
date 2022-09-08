@@ -1,0 +1,35 @@
+@import "../../theme/variables.scss";
+
+@mixin  flexBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  @include flexBox;
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+
+  .parent {
+    @include flexBox;
+    background-color: green;
+    width: 200px;
+    height: 200px;
+
+    .child {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
