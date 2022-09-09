@@ -1,5 +1,6 @@
 {
-  "name": "react-boilerplate",
+  "homePage": "http://Abhilkv.github.io/upayments",
+  "name": "upayments",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +21,8 @@
   },
   "scripts": {
     "clean": "del ./dist/*",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "tests": "cross-env run-p eslint test",
     "test": "cross-env jest -i",
     "reports": "run-p eslint-report coverage-summary",
