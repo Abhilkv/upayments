@@ -4,7 +4,7 @@ import {
   HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL
 } from '../../../actions';
 import * as api from '../store/api';
-import apiCall from '../../../sagas/api';
+import apiCall from '../../../api/api';
 
 jest.mock('../../../sagas/api');
 

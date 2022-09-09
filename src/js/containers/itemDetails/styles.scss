@@ -48,6 +48,7 @@
       @include flexBox;
       border-radius: 20px;
       background-color: $white;
+      min-width: 200px;
     }
 
     .image {

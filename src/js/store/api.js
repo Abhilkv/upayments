@@ -2,6 +2,7 @@ import axios from 'axios';
 import { replace as replaceRouter } from 'react-router-redux';
 import registry from 'app-registry';
 import { store } from '../store';
+import { token } from '../env';
 
 const isAuthTokenValid = (authToken) => (authToken !== null && authToken !== '');
 
@@ -14,17 +15,12 @@ export default async function apiCall(payload) {
     isAuthRequired = true
   } = payload;
 
-  // Reading API configs from config/env
   const apiEndpoint = 'https://upayments-studycase-api.herokuapp.com/api';
   const API_URL = `${apiEndpoint}${url}`;
 
-  // Reading auth-token from cookie
-  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt2LmFiaGlsOTZAZ21haWwuY29tIiwiZ2l0aHViIjoiaHR0cHM6Ly9naXRodWIuY29tL0FiaGlsa3YiLCJpYXQiOjE2NjI1Mjk4OTEsImV4cCI6MTY2Mjk2MTg5MX0.o8HMo2qme70OjSUV95OtINgkte_uri4WhchOenP_S0M';
-
   // Re-routing to login if not authorized
-  if (isAuthRequired && !isAuthTokenValid(authToken)) {
-    store.dispatch(replaceRouter('/login'));
-    return null;
+  if (isAuthRequired && !isAuthTokenValid(token)) {
+    alert('Token missing');
   }
 
   // Setting API parameters
@@ -34,7 +30,7 @@ export default async function apiCall(payload) {
     url: API_URL,
     ...(isAuthRequired && {
       headers: {
-        Authorization: `Bearer ${authToken}`
+        Authorization: `Bearer ${token}`
       }
     })
   };

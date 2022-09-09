@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { InputBox, Button, Loader } from 'app/components';
+import { email } from '../../env';
 
 import styles from './styles.scss';
 
@@ -28,7 +29,7 @@ const CreatePage = (props) => {
   };
 
   const sumbitDetails = () => {
-    addProduct({ ...inputDetaisls, developerEmail: 'kv.abhil96@gmail.com' });
+    addProduct({ ...inputDetaisls, developerEmail: email });
   };
 
   const fields = [
