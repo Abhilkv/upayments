@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import apiCall from '../../../sagas/api';
+import apiCall from '../../../store/api';
 import {
   HOMEPAGE_PRODUCT_DATA_FETCH_REQUEST,
   HOMEPAGE_PRODUCT_DATA_FETCH_SUCCESS,
