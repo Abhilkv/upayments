@@ -3,16 +3,16 @@ import {
   HOMEPAGE_PRODUCTS_DATA_FETCH_SUCCESS,
   HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL
 } from '../../../actions';
-import * as saga from '../saga';
+import * as api from '../store/api';
 import apiCall from '../../../sagas/api';
 
 jest.mock('../../../sagas/api');
 
 it('handles fetchDummyApi', async () => {
-  const fetchDummyApiTest = saga.default;
+  const fetchDummyApiTest = api.default;
   fetchDummyApiTest();
   apiCall.mockReturnValueOnce(true);
-  const url = '/5d8f5d433200000d00adec03';
+  const url = '/products';
   const apiArgs = {
     API_CALL: {
       method: 'GET'
@@ -23,7 +23,7 @@ it('handles fetchDummyApi', async () => {
       successType: HOMEPAGE_PRODUCTS_DATA_FETCH_SUCCESS,
       failureType: HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL
     },
-    isAuthRequired: false // Remove this param, if authToken required
+    isAuthRequired: false
   };
   expect(apiCall).toHaveBeenCalledWith(apiArgs);
 });

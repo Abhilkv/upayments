@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 const mockClick = jest.fn();
 
 
-describe('components/homePage', () => {
+describe('components/detailsPage', () => {
   it('Renders default options', () => {
     const component = shallow(
       <CreatePage />

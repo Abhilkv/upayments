@@ -20,10 +20,9 @@ export const getProductsInfo = async() => {
       successType: HOMEPAGE_PRODUCTS_DATA_FETCH_SUCCESS,
       failureType: HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL
     },
-    isAuthRequired: true // Remove this param, if authToken required
+    isAuthRequired: true
   };
 
-  // Accept response if necessary with await
   apiCall(apiArgs);
 };
 
@@ -39,9 +38,8 @@ export const getCategories = async() => {
       successType: HOMEPAGE_CATEGORIES_DATA_FETCH_SUCCESS,
       failureType: HOMEPAGE_CATEGORIES_DATA_FETCH_FAIL
     },
-    isAuthRequired: true // Remove this param, if authToken required
+    isAuthRequired: true
   };
 
-  // Accept response if necessary with await
   apiCall(apiArgs);
-}
+};

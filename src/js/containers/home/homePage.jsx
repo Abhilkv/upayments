@@ -29,7 +29,7 @@ const HomePage = (props) => {
 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.productContainer}>
       {loading && <Loader />}
       <div className={styles.boxContainer}>
         <input value={searchKey} onChange={(event) => { searchProduct(event.target.value); }} className={styles.searchBar} placeholder="Apple Watch, Samsung S21, Macbook Pro iphone 11" />

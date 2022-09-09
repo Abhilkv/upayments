@@ -31,7 +31,7 @@ describe('containers/create-page/reducers', () => {
         };
         const resultState = reducer(defaultState, { type: 'CREATEPAGE:PRODUCTS_DATA:SUBMIT:SUCCESS', data });
         expect(resultState).toEqual({
-          submitResponse: 'Success', loading: true
+          submitResponse: 'Success', loading: false
         });
       });
       it('should handle CREATEPAGE:PRODUCTS_DATA:SUBMIT:FAIL', () => {
