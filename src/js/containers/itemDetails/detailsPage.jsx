@@ -1,37 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'app/components';
+import { Loader } from 'app/components';
 
 import styles from './styles.scss';
 
-const HomePage = (props) => {
-  // const query = new URLSearchParams(props.location.search);
-  // const name = query.get('name');
-  const [resestCircle, setResetCircle] = useState(true);
-  const [rotationValue, setRotationValue] = useState(270);
+const DetailsPage = (props) => {
+  const { getProductsInfo, productData, loading } = props;
 
-  const reset = () => {
-    setResetCircle(false);
-    setTimeout(() => { setResetCircle(true); }, 0);
-    setRotationValue(0);
-  };
 
   useEffect(() => {
-    document.getElementsByClassName('circleWrapper').style.tranform = `rotate(${rotationValue}deg)`;
+    const query = new URLSearchParams(props.location.search);
+    const productId = query.get('id');
+    getProductsInfo(productId);
   }, []);
 
   return (
     <div className={styles.container}>
-      <span>
-        {name}
-      </span>
+      {loading ? <Loader /> : (
+        <div className={styles.contentbox}>
+          <div className={styles.detailsWrapper}>
+            <div className={styles.imageWrapper}>
+              <img className={styles.image} alt={productData.name} src={productData.avatar} height={280} />
+            </div>
+            <div className={styles.nameBlock}>
+              <span className={styles.name}>
+                {productData.name}
+              </span>
+              <span className={styles.price}>
+                ${productData.price}
+              </span>
+            </div>
+          </div>
+          <div className={styles.divider} />
+          <div className={styles.descriptionBox}>
+            <span className={styles.title}>Description</span>
+            <span className={styles.description}>{productData.description}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 
-HomePage.propTypes = {
+DetailsPage.propTypes = {
+  getProductsInfo: PropTypes.func.isRequired,
+  productData: PropTypes.shape,
+  loading: PropTypes.bool
 };
 
-export default HomePage;
+DetailsPage.defaultProps = {
+  productData: {},
+  loading: false
+};
+
+export default DetailsPage;

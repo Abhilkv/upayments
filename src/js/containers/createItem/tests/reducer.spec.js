@@ -1,11 +1,12 @@
 import Immutable from 'seamless-immutable';
-import reducer from '../reducer';
+import reducer from '../store/reducer';
 
 const defaultState = Immutable({
-  dummyData: {}
+  submitResponse: '',
+  loading: false
 });
 
-describe('containers/home-page/reducers', () => {
+describe('containers/create-page/reducers', () => {
   describe('state', () => {
     it('should export `reducer`', () => {
       expect(reducer)
@@ -18,25 +19,25 @@ describe('containers/home-page/reducers', () => {
   });
   describe('actions', () => {
     describe('actions', () => {
-      it('should handle HOMEPAGE:PRODUCTS_DATA:FETCH:REQUEST', () => {
-        const resultState = reducer(defaultState, { type: 'HOMEPAGE:PRODUCTS_DATA:FETCH:REQUEST' });
+      it('should handle CREATEPAGE:PRODUCTS_DATA:SUBMIT:REQUEST', () => {
+        const resultState = reducer(defaultState, { type: 'CREATEPAGE:PRODUCTS_DATA:SUBMIT:REQUEST' });
         expect(resultState).toEqual({
-          dummyData: {}
+          submitResponse: '', loading: true
         });
       });
-      it('should handle HOMEPAGE:PRODUCTS_DATA:FETCH:SUCCESS', () => {
+      it('should handle CREATEPAGE:PRODUCTS_DATA:SUBMIT:SUCCESS', () => {
         const data = {
           id: 'a123'
         };
-        const resultState = reducer(defaultState, { type: 'HOMEPAGE:PRODUCTS_DATA:FETCH:SUCCESS', data });
+        const resultState = reducer(defaultState, { type: 'CREATEPAGE:PRODUCTS_DATA:SUBMIT:SUCCESS', data });
         expect(resultState).toEqual({
-          dummyData: data
+          submitResponse: 'Success', loading: true
         });
       });
-      it('should handle HOMEPAGE:PRODUCTS_DATA:FETCH:FAIL', () => {
-        const resultState = reducer(defaultState, { type: 'HOMEPAGE:PRODUCTS_DATA:FETCH:FAIL' });
+      it('should handle CREATEPAGE:PRODUCTS_DATA:SUBMIT:FAIL', () => {
+        const resultState = reducer(defaultState, { type: 'CREATEPAGE:PRODUCTS_DATA:SUBMIT:FAIL' });
         expect(resultState).toEqual({
-          dummyData: {}
+          submitResponse: '', loading: false
         });
       });
     });

@@ -19,9 +19,16 @@ const defaultState = Immutable.flatMap({
   category: ''
 });
 
-const filterData = (state, key) => {
-
-}
+const filterData = (data, category, searchKey) => {
+  if (category && searchKey) {
+    return data.filter((item) => ((item.category).toLowerCase() === (category).toLowerCase() && ((item.name).toLowerCase()).includes((searchKey).toLowerCase())));
+  } if (category) {
+    return data.filter((item) => ((item.category).toLowerCase() === (category).toLowerCase()));
+  } if (searchKey) {
+    return data.filter((item) => (((item.name).toLowerCase()).includes((searchKey).toLowerCase())));
+  }
+  return data;
+};
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -29,7 +36,7 @@ export default (state = defaultState, action) => {
       return Immutable.merge(state, { loading: true, productsData: [] });
 
     case HOMEPAGE_PRODUCTS_DATA_FETCH_SUCCESS:
-      return Immutable.merge(state, { loading: false, actualData: action.data && action.data.products, productsData: action.data && action.data.products });
+      return Immutable.merge(state, { loading: false, actualData: action.data && action.data.products, productsData: filterData(action.data && action.data.products, state.category, state.searchKey) });
 
     case HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL:
       return Immutable.merge(state, { loading: false, productsData: [] });
@@ -45,10 +52,10 @@ export default (state = defaultState, action) => {
       return Immutable.merge(state, { loading: false, categories: [] });
 
     case HOMEPAGE_PRODUCTS_DATA_SEARCH:
-      return Immutable.merge(state, { searchKey: action.key, category: '', productsData: action.key ? [...(state.actualData.filter((item) => (((item.name).toLowerCase()).includes((action.key).toLowerCase()))))] : state.actualData });
+      return Immutable.merge(state, { searchKey: action.key, productsData: filterData(state.actualData, state.category, action.key) });
 
     case HOMEPAGE_PRODUCTS_DATA_FILTER:
-      return Immutable.merge(state, { searchKey: '', category: action.category, productsData: action.category ? [...(state.actualData.filter((item) => ((item.category).toLowerCase() === (action.category).toLowerCase())))] : state.actualData });
+      return Immutable.merge(state, { searchKey: '', category: action.category, productsData: filterData(state.actualData, action.category, '') });
 
     default:
       return state;

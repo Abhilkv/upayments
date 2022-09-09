@@ -1,11 +1,11 @@
-import apiCall from '../../../sagas/api';
+import apiCall from '../../../store/api';
 import {
   HOMEPAGE_PRODUCTS_DATA_FETCH_REQUEST,
   HOMEPAGE_PRODUCTS_DATA_FETCH_SUCCESS,
   HOMEPAGE_PRODUCTS_DATA_FETCH_FAIL,
   HOMEPAGE_CATEGORIES_DATA_FETCH_REQUEST,
   HOMEPAGE_CATEGORIES_DATA_FETCH_SUCCESS,
-  HOMEPAGE_CATEGORIES_DATA_FETCH_FAIL,
+  HOMEPAGE_CATEGORIES_DATA_FETCH_FAIL
 } from '../../../actions';
 
 export const getProductsInfo = async() => {
@@ -25,7 +25,7 @@ export const getProductsInfo = async() => {
 
   // Accept response if necessary with await
   apiCall(apiArgs);
-}
+};
 
 export const getCategories = async() => {
   const url = '/categories';

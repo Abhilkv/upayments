@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 
-import { HOMEPAGE_PRODUCTS_DATA } from '../../actions';
-import HomePage from './createPage';
-// import submitMessage from './saga';
+import { getCategories } from '../home/store/api';
+import addProduct from './store/api';
 
-const mapStateToProps = ({ homePage }) => ({
-  dummyData: homePage.dummyData,
-  count: homePage.count
+import CreatePage from './createPage';
+
+const mapStateToProps = ({ homePage, create }) => ({
+  categories: homePage.categories,
+  loading: create.loading,
+  submitResponse: create.submitResponse
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  updateFunction: (newValue, user, key) => {
-    dispatch({ type: HOMEPAGE_PRODUCTS_DATA, data: newValue, user, key });
-  }
+const mapDispatchToProps = () => ({
+  getCategories,
+  addProduct
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);

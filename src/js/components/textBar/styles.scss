@@ -23,3 +23,11 @@
     color: $primaryFontColor;
   }
 }
+
+@media only screen and (max-width: 1500px) {
+  .textBar {
+    height: 80px;
+    font-size: 25px;
+    border-radius: 15px !important;
+  }
+}

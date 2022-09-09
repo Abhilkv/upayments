@@ -32,13 +32,15 @@ describe('containers/home-page/index', () => {
         const mapStateToProps = mockConnect.mock.calls[0][0];
 
         const state = {
-          homePage: {
-            dummyData: {}
+          create: {
+            categories: [],
+            loading: false
           }
         };
         const result = mapStateToProps(state);
         expect(result).toEqual({
-          dummyData: {}
+          categories: [],
+          loading: false
         });
       });
     });
@@ -53,12 +55,12 @@ describe('containers/home-page/index', () => {
         expect(mapDispatchToProps).toBeInstanceOf(Function);
         expect(mapDispatchToProps.name).toBe('mapDispatchToProps');
       });
-      it('should fire fetchDummyApi', () => {
+      it('should fire addProduct', () => {
         const mapDispatchToProps = mockConnect.mock.calls[0][1];
         const props = mapDispatchToProps();
 
         expect(props).toBeDefined();
-        expect(props.fetchDummyApi).toBeDefined();
+        expect(props.addProduct).toBeDefined();
       });
     });
   });

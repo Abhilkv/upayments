@@ -4,7 +4,7 @@ import Layout from '../layout/mainLayout';
 
 const Home = (props) => (
   <Layout>
-    <CreateItem />
+    <CreateItem {...props} />
   </Layout>
 );
 

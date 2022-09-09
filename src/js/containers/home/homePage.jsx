@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { ProductCard, Loader } from 'app/components';
@@ -15,8 +16,6 @@ const HomePage = (props) => {
     filterCategory,
     searchKey,
     category } = props;
-  // const query = new URLSearchParams(props.location.search);
-  // const name = query.get('name');
 
   useEffect(() => {
     getProductsInfo();
@@ -36,8 +35,8 @@ const HomePage = (props) => {
         <input value={searchKey} onChange={(event) => { searchProduct(event.target.value); }} className={styles.searchBar} placeholder="Apple Watch, Samsung S21, Macbook Pro iphone 11" />
         <select value={category} onChange={filterData} name="category" id="category" className={styles.category}>
           <option value="" className={styles.optionText}>Category</option>
-          {categories.length > 0 && categories.map((category) => (
-            <option value={category.name} className={styles.optionText}>{category.name}</option>
+          {categories.length > 0 && categories.map((item) => (
+            <option value={item.name} className={styles.optionText} key={item.name}>{item.name}</option>
           ))}
         </select>
       </div>
@@ -47,6 +46,11 @@ const HomePage = (props) => {
           <ProductCard data={data} />
         ))}
       </div>)}
+      <div className={styles.fabButton}>
+        <Link to="/create" className={styles.addButton}>
+          <span className={styles.addCircle} />
+        </Link>
+      </div>
     </div>
   );
 };

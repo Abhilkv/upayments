@@ -1,0 +1,31 @@
+@import '../../theme/variables.scss';
+
+.inputBox {
+  width: 100%;
+  height: 30px;
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.957);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px rgb(192, 192, 192);
+  color: $secondaryFontColor;
+  min-height: 30px;
+  font-size: 16px;
+  margin-bottom: 25px;
+  outline: none;
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.description {
+  height: 100px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .inputBox {
+    width: 100% !important;
+    padding: 20px;
+    font-size: 25px !important;
+  }
+}

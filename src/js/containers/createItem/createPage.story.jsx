@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import HomePage from './createPage';
+import CreatePage from './createPage';
 
-storiesOf('HomePage', module)
-  .add('default HomePage', () => (
-    <HomePage />
+storiesOf('CreatePage', module)
+  .add('default CreatePage', () => (
+    <CreatePage categories={[]} />
   ));
