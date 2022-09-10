@@ -1,7 +1,4 @@
-#new-react-boilerplate
-
-This is the new React boilerplate with latest React, Redux and Webpack.
-
+#upayments 
 
 The UI is built using:
 
@@ -24,7 +21,6 @@ They all need to be installed globally (i.e. with `npm install -g`)
 To develop/run the ui locally execute the following steps:
 
 1. Install the prereqs mentioned above.
-2. Check out the project from BitBucket [new-react-boilerplate](https://bitbucket.org/keyvaluesoftwaresystems/new-react-boilerplate/)
 3. Run `npm install`
 4. To run the local server (in dev mode) run `npm run serve`
 
@@ -59,14 +55,3 @@ Deployment can be done as a Web App.
 
 `npm run build` generates an index.html with the js bundle, css bundle and all assets which can be deployed directly on a web server. The js and css bundles are hashed for setting a long cache.
 
-### Deployment as Web App in a Docker Container
-
-Pre-requisite:
-* Docker
-
-We may use docker containers for deployment. 
-The docker container should be first built using `build.sh` and then installed using `run.sh`.
-
-After running `run.sh`, the application can be accessed at `http://{server}:8081`
-
-NOTE: To run docker without using `sudo` please follow the steps mentioned [here](https://docs.docker.com/install/linux/linux-postinstall/)
