@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "del ./dist/*",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -b master -d dist",
     "tests": "cross-env run-p eslint test",
     "test": "cross-env jest -i",
     "reports": "run-p eslint-report coverage-summary",
