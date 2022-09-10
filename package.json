@@ -37,7 +37,6 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/keyvaluesoftwaresystems/new-react-boilerplate#readme",
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
     "@babel/runtime": "7.6.3",
