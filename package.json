@@ -1,5 +1,5 @@
 {
-  "homePage": "http://Abhilkv.github.io/upayments",
+  "homePage": "https://abhilkv.github.io/upayments/",
   "name": "upayments",
   "version": "1.0.0",
   "description": "",
@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "del ./dist/*",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "tests": "cross-env run-p eslint test",
     "test": "cross-env jest -i",
     "reports": "run-p eslint-report coverage-summary",
@@ -43,6 +43,7 @@
     "@babel/runtime": "7.6.3",
     "app-registry": "^1.0.1",
     "axios": "^0.19.0",
+    "error-ex": "git+https://github.com/Qix-/node-error-ex.git",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
@@ -100,6 +101,6 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "pre-commit": [
-    "tests"
+    // "tests"
   ]
 }

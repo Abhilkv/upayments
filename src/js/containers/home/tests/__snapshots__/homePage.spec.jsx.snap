@@ -2,32 +2,43 @@
 
 exports[`components/homePage Renders default options 1`] = `
 <div
-  className="container"
+  className="productContainer"
 >
   <div
-    className="wrapper"
+    className="boxContainer"
   >
-    <div
-      className="header"
-    >
-      <img
-        alt="logo"
-        className="logo"
-        src="assets/logo.svg"
-      />
-      <div>
-         Welcome to React 
-      </div>
-    </div>
-    <p
-      className="intro"
-    >
-      Start building with new &lt;React /&gt;  and &lt;Boilerplate /&gt;
-    </p>
-    <Button
-      label="Click Me!"
-      onClick={[Function]}
+    <input
+      className="searchBar"
+      onChange={[Function]}
+      placeholder="Apple Watch, Samsung S21, Macbook Pro iphone 11"
+      value=""
     />
+    <select
+      className="category"
+      id="category"
+      name="category"
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        className="optionText"
+        value=""
+      >
+        Category
+      </option>
+    </select>
+  </div>
+  <div
+    className="fabButton"
+  >
+    <Link
+      className="addButton"
+      to="/create"
+    >
+      <span
+        className="addCircle"
+      />
+    </Link>
   </div>
 </div>
 `;

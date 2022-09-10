@@ -1,33 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/homePage Renders default options 1`] = `
+exports[`components/detailsPage Renders default options 1`] = `
 <div
   className="container"
 >
   <div
-    className="wrapper"
+    className="contentbox"
   >
     <div
-      className="header"
+      className="detailsWrapper"
     >
-      <img
-        alt="logo"
-        className="logo"
-        src="assets/logo.svg"
-      />
-      <div>
-         Welcome to React 
+      <div
+        className="imageWrapper"
+      >
+        <img
+          className="image"
+          height={280}
+        />
+      </div>
+      <div
+        className="nameBlock"
+      >
+        <span
+          className="name"
+        />
+        <span
+          className="price"
+        >
+          $
+        </span>
       </div>
     </div>
-    <p
-      className="intro"
-    >
-      Start building with new &lt;React /&gt;  and &lt;Boilerplate /&gt;
-    </p>
-    <Button
-      label="Click Me!"
-      onClick={[Function]}
+    <div
+      className="divider"
     />
+    <div
+      className="descriptionBox"
+    >
+      <span
+        className="title"
+      >
+        Description
+      </span>
+      <span
+        className="description"
+      />
+    </div>
   </div>
 </div>
 `;
