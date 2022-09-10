@@ -1,2 +1,0 @@
-export const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaGlsa25pZ2h0QGdtYWlsLmNvbSIsImdpdGh1YiI6Imh0dHBzOi8vZ2l0aHViLmNvbS9BYmhpbGt2IiwiaWF0IjoxNjYyNzQ4MDc3LCJleHAiOjE2NjMxODAwNzd9.8alSEQL7NKNv45UnSnDawNnJB0Q5hAh_9nRe8Ux9ElM';
-export const email = 'abhilknight@gmail.com';
